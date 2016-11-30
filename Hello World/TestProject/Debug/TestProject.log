@@ -1,0 +1,3 @@
+﻿  TestProject.cpp
+c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\testproject\testproject.cpp(14): warning C4717: 'foo': recursive on all control paths, function will cause runtime stack overflow
+  TestProject.vcxproj -> C:\Users\mario.backes\Documents\Visual Studio 2015\Projects\learncpp\Hello World\Debug\TestProject.exe

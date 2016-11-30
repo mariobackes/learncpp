@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Quiz_5_5_1_loops.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  stdafx.cpp
+  Quiz_5_5_1_loops.cpp
+  Quiz_5_5_1_loops.vcxproj -> C:\Users\mario.backes\Documents\Visual Studio 2015\Projects\learncpp\Hello World\Debug\Quiz_5_5_2_loops.exe
