@@ -62,7 +62,7 @@ void printCard(const Card& card)
 // Prints every card in the passed array, seperated by a single space.
 void printDeck(const std::array<Card, g_deckSize>& deck)
 {
-    for each ( const Card card in deck)
+    for ( const Card card : deck)   // Is it good practice to always use auto as type in for-each loops?
     {
         printCard(card);
         std::cout << " ";
@@ -72,6 +72,7 @@ void printDeck(const std::array<Card, g_deckSize>& deck)
 // Swaps values of two cards.
 void swapCard(Card& x, Card& y)
 {
+
     /*
     Card temp;
     temp.rank = x.rank;
@@ -86,7 +87,9 @@ void swapCard(Card& x, Card& y)
     x = y;
     y = temp;
 }
-// TODO change vs for each loop snippet
+
+// TODO change Visual Studio for each loop snippet - done
+
 // Puts the array that contains the deck of cards in a random order. Expects srand() and rand() to been called before.
 void shuffleDeck(std::array<Card, g_deckSize>& deck)
 {
@@ -178,22 +181,26 @@ Result playBlackjack(std::array<Card, g_deckSize>& deck)
     Card* cardPtr = &deck[0];       // cardPtr points to the first card in the deck.
     
     // Scores:
-    int playerScore = 0;
+    int playerScore = 0;            // Win counts
     int dealerScore = 0;
 
     int playerAceCounter = 0;       // These counters are there to see if an ace should be evaluated as 1 or 11.
     int dealerAceCounter = 0;
 
+
+    // Dealers turn
     std::cout << "The dealer drew ";    
-    if (cardPtr->rank == RANK_ACE)
+    if (cardPtr->rank == RANK_ACE)              // Check if the card that the dealer is about to draw is an ace
     {
-        ++dealerAceCounter;                     // Check if the card that the dealer is about to draw is an ace, if yes increment the ace counter.
+        ++dealerAceCounter;                     // If yes increment the ace counter.
     }
     printCard(*cardPtr);                        // Tell the user what he drew.
     std::cout << std::endl;                     // Formatting
     dealerScore += getCardValue(*cardPtr++);    // Add the value of the first card in the deck to the account of the dealer and move the pointer to the next card.
     std::cout << "His score is now:" << dealerScore << std::endl << std::endl;      // Tell the user his current score.
 
+
+    // Users turn
     std::cout << "You draw ";       // User draws a card.
     printCard(*cardPtr);
     std::cout << std::endl;
@@ -207,12 +214,12 @@ Result playBlackjack(std::array<Card, g_deckSize>& deck)
     std::cout << std::endl;
     if (cardPtr->rank == RANK_ACE)                  // Ace check again.
     {
-        ++playerAceCounter;
-    }
+        ++playerAceCounter;                         // TODO: Make the ace check a function.
+    }                                               // Having the same code mutiple times is very bad practice.
     playerScore += getCardValue(*cardPtr++);
     std::cout << "Your score is now " << playerScore << std::endl << std::endl;
 
-    while (hitOrStand())
+    while (hitOrStand())                            // If the used hits, he draws another card.
     {
         std::cout << "You draw ";
         printCard(*cardPtr);
@@ -226,14 +233,14 @@ Result playBlackjack(std::array<Card, g_deckSize>& deck)
         if (playerScore > 21)
         {                                           
             if (playerAceCounter == 0)
-            {   // If the play has more than 21 points, he loses instantly.
+            {   // If the player has more than 21 points, he loses instantly.
                 std::cout << "Bust: You have more than 21 points and therefore you lose." << std::endl;
                 return Result::LOSE;
             }
             else
             {
                 playerScore -= 10;
-                playerAceCounter--;
+                --playerAceCounter;
             }
         }
     }
@@ -264,8 +271,8 @@ Result playBlackjack(std::array<Card, g_deckSize>& deck)
         }
     }
 
-
-    if (playerScore > dealerScore)  // This only happends if no player is above 21 points.
+    // This only happends if no player is above 21 points.
+    if (playerScore > dealerScore)  
     {
         std::cout << "You have more points than the dealer. You win." << std::endl;
         return Result::WIN;
