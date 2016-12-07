@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 
+const int g_deckSize{ 52 };
+
 
 class Card
 {
@@ -47,8 +49,8 @@ Card(CardRank rank = CardRank::RANK_2, Card::CardSuit suit = Card::CardSuit::SUI
 
 }
 
-// TODO Integrate printCard() and getCardValue() accordingly into this oop program.
-void printCard(const Card &card) const
+
+void printCard() const
 {
     switch (m_rank)
     {
@@ -98,10 +100,58 @@ int getCardValue() const
     return 0;
 }
 
+friend class Deck;
+
 private:
     CardRank m_rank;
     CardSuit m_suit;
 };
+
+
+class Deck
+{
+private:
+    std::array<Card, g_deckSize> m_deck;
+public:
+
+    Deck()
+    {
+        int card = 0;
+        for (int suit = 0; suit < Card::CardSuit::MAX_SUITS; ++suit)
+        {
+            for (int rank = 0; rank < Card::CardRank::MAX_RANKS; ++rank)
+            {
+                m_deck[card].m_rank = static_cast<Card::CardRank>(rank);
+                m_deck[card].m_suit = static_cast<Card::CardSuit>(suit);
+                ++card;
+            }
+        }
+    }
+
+    void printDeck() const
+    {
+        for (const Card card : m_deck)
+        {
+            card.printCard();
+            std::cout << ' ';
+        }
+
+        std::cout << '\n';
+    }
+};
+
+
+int main()
+{
+    srand(static_cast<unsigned int>(time(0)));
+    rand();
+
+    const Card cardQueenHearts(Card::RANK_QUEEN, Card::SUIT_HEART);
+    cardQueenHearts.printCard();
+    std::cout << " has the value " << cardQueenHearts.getCardValue() << '\n';
+
+    return 0;
+}
 
 
 /*
@@ -113,16 +163,7 @@ struct Card
     CardSuit suit;
 };
 
-void printDeck(const std::array<Card, 52> deck)
-{
-    for (const auto &card : deck)
-    {
-        printCard(card);
-        std::cout << ' ';
-    }
 
-    std::cout << '\n';
-}
 
 void swapCard(Card &a, Card &b)
 {
