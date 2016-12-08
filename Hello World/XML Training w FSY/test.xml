@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<arbeitsplatz>
+  <!-->
+  <Tasse Inhalt="voll">
+      Kaffee
+    </Tasse>
+    <Kopfhörer Farbe="Schwarz"/-->
+    <notizbuch Logo="ISE"></notizbuch>
+    <bloecke>
+      <block Art="Kariert" Seiten="30" Farbe="Weiß" Seite="A4">
+        Frank's Notiz
+     </block>
+     <block Art="StickyNotes" Seiten="500" Farbe="Gelb"></block>
+   </bloecke>
+</arbeitsplatz>
+  
