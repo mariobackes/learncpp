@@ -1,5 +1,0 @@
-﻿  stdafx.cpp
-  Quiz 8-5.cpp
-d:\learncpp-repo\learncpp\hello world\quiz 8-5\quiz 8-5.cpp(60): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-d:\learncpp-repo\learncpp\hello world\quiz 8-5\quiz 8-5.cpp(63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Quiz 8-5.vcxproj -> D:\learncpp-repo\learncpp\Hello World\Debug\Quiz 8-5.exe
