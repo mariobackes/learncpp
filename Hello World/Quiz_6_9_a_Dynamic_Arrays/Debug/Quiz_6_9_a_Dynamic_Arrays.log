@@ -1,5 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Quiz_6_9_a_Dynamic_Arrays.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Quiz_6_9_a_Dynamic_Arrays.cpp
-c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\quiz_6_9_a_dynamic_arrays\quiz_6_9_a_dynamic_arrays.cpp(46): error C3078: array size must be specified in new expressions
-c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\quiz_6_9_a_dynamic_arrays\quiz_6_9_a_dynamic_arrays.cpp(59): warning C4154: deletion of an array expression; conversion to pointer supplied
-c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\quiz_6_9_a_dynamic_arrays\quiz_6_9_a_dynamic_arrays.cpp(60): error C3863: array type 'std::string []' is not assignable

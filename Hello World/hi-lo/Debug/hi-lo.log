@@ -1,5 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (hi-lo(code review).vcxproj, hi-lo.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  stdafx.cpp
-  hi-lo.cpp
-c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\hi-lo\hi-lo.cpp(78): warning C4101: 'retVal': unreferenced local variable
-  hi-lo.vcxproj -> C:\Users\mario.backes\Documents\Visual Studio 2015\Projects\learncpp\Hello World\Debug\Hi-Lo (Code Review).exe

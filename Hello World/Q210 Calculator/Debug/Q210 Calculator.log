@@ -1,6 +1,0 @@
-﻿  stdafx.cpp
-  functions.cpp
-c:\users\mario.backes\documents\visual studio 2015\projects\learncpp\hello world\q210 calculator\functions.cpp(26): warning C4101: 'retVal': unreferenced local variable
-  Q210 Calculator.cpp
-  Generating Code...
-  Q210 Calculator.vcxproj -> C:\Users\mario.backes\Documents\Visual Studio 2015\Projects\learncpp\Hello World\Debug\Q210 Calculator.exe
