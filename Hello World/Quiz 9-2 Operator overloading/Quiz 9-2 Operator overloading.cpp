@@ -24,10 +24,11 @@ private:
   }
   
 public:
-  Fraction(int num, int denom)
+  Fraction(int num = 1, int denom = 1)
     : m_numerator{ num }
     , m_denominator{ denom }
   {
+    reduce();
   }
 
   friend Fraction operator*( const Fraction& lhs, const Fraction& rhs)
@@ -49,6 +50,24 @@ public:
     return Fraction(numerator, lhs.m_denominator);
   }
 
+  friend std::ostream& operator<<(std::ostream& out, const Fraction fraction)
+  {
+    out << fraction.m_numerator;
+    if (fraction.m_denominator != 1)
+    {
+      out << "/" << fraction.m_denominator;
+    }
+    return out;
+  }
+
+  friend std::istream& operator>> (std::istream& in, Fraction& fraction)
+  {
+    in >> fraction.m_numerator;
+    in >> fraction.m_denominator;
+    fraction.reduce();
+    return in;
+  }
+
   void print()
   {
     reduce();
@@ -58,23 +77,16 @@ public:
 
 int main()
 {
-  Fraction f1(2, 5);
-  f1.print();
 
-  Fraction f2(3, 8);
-  f2.print();
+  Fraction f1;
+  std::cout << "Enter fraction 1: ";
+  std::cin >> f1;
 
-  Fraction f3 = f1 * f2;
-  f3.print();
+  Fraction f2;
+  std::cout << "Enter fraction 2: ";
+  std::cin >> f2;
 
-  Fraction f4 = f1 * 2;
-  f4.print();
-
-  Fraction f5 = 2 * f2;
-  f5.print();
-
-  Fraction f6 = Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4);
-  f6.print();
+  std::cout << f1 << " * " << f2 << " is " << f1 * f2 << '\n';
 
   return 0;
 }
