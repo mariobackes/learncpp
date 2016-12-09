@@ -103,6 +103,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parsing XML with boost", "P
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Quiz 9-2 Operator overloading", "Quiz 9-2 Operator overloading\Quiz 9-2 Operator overloading.vcxproj", "{67C9C1B7-A41D-4AEF-98FE-93BE787E7DD7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Quiz 9-5 Unary operator overloading", "Quiz 9-5 Unary operator overloading\Quiz 9-5 Unary operator overloading.vcxproj", "{C3C71F49-A278-40D4-A620-D684318A354F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -511,6 +513,14 @@ Global
 		{67C9C1B7-A41D-4AEF-98FE-93BE787E7DD7}.Release|x64.Build.0 = Release|x64
 		{67C9C1B7-A41D-4AEF-98FE-93BE787E7DD7}.Release|x86.ActiveCfg = Release|Win32
 		{67C9C1B7-A41D-4AEF-98FE-93BE787E7DD7}.Release|x86.Build.0 = Release|Win32
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Debug|x64.ActiveCfg = Debug|x64
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Debug|x64.Build.0 = Debug|x64
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Debug|x86.ActiveCfg = Debug|Win32
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Debug|x86.Build.0 = Debug|Win32
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Release|x64.ActiveCfg = Release|x64
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Release|x64.Build.0 = Release|x64
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Release|x86.ActiveCfg = Release|Win32
+		{C3C71F49-A278-40D4-A620-D684318A354F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
