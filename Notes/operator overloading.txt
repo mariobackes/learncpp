@@ -1,0 +1,4 @@
+If you’re overloading assignment (=), subscript ([]), function call (()), or member selection (->), do so as a member function.
+If you’re overloading a unary operator, do so as a member function.
+If you’re overloading a binary operator that modifies its left operand (e.g. operator+=), do so as a member function if you can.
+If you’re overloading a binary operator that does not modify its left operand (e.g. operator+), do so as a normal function or friend function.
