@@ -1,0 +1,20 @@
+1) Assuming Point is a class and point is an instance of that class, should you use a normal/friend or member function overload for the following operators?
+
+1a) point + point
+1b) -point
+1c) std::cout << point
+1d) point = 5;
+
+My answers:
+
+	a) friend
+	b) member
+	c) member - because this overload needs a *this pointer it can return so output can be chained
+	d) member - assignment operator needs to be a member function
+	
+The correct answers:
+
+	1a) binary operator+ is best implemented as a normal/friend function.
+	1b) unary operator- is best implemented as a member function.
+	1c) operator<< must be implemented as a normal/friend function.
+	1d) operator= must be implemented as a member function.
