@@ -1,0 +1,19 @@
+Quiz
+
+1) Convert the following numbers to C++ style scientific notation (using an e to represent the exponent) and determine how many significant digits each has:
+a) 34.50
+b) 0.004000
+c) 123.005
+d) 146000
+e) 146000.001
+f) 0.0000000008
+g) 34500.0
+
+
+a) 3.45e1
+b) 4e-3
+c) 1.23005e2
+d) 1.46e5
+e) 1.46000001e5
+f) 8e-10
+g) 3.45e4

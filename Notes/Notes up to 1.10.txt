@@ -1,0 +1,100 @@
+0.4 - Introduction to developement
+
+Source: http://www.learncpp.com/cpp-tutorial/04-introduction-to-development/
+Image: http://learncpp.com/images/CppTutorial/Section0/Development.png
+
+// These notes are up to chapter 1.10b, then I started using different files for different topics!!
+
+Step 1: Define the problem that you want to solve.
+
+The "what" step.
+
+Here are a few examples:
+
+“I want to write a program that will allow me to enter numbers, then calculates the average.”
+“I want to write a program that generates a 2d maze and lets the user navigate through it.”
+“I want to write a program that reads in a file of stock prices and predicts whether the stock will go up or down.”
+
+
+
+Step 2: Determine how you want to solve the problem.
+
+The "how" step.
+
+Typically, good solutions have the following characteristics:
+	-They are straightforward
+	-They are well documented
+	-They are built modularly, so parts can be reused or changed later without impacting other parts of the program.
+	-They are robust and can recover or give usefull error messages when something unexpected happends.
+
+When you start coding right away you're typically thinking "I want to do >this<", so you implement the solution that gets you there fastest.
+This will lead to Programs that are fragile, hard to change or extend and have lots of bugs.
+
+
+
+//Comments
+
+At a statement level a comment should not say WHAT a statement is doing, it should say WHY the statement is doing something.
+At the library, program or function level describe WHAT.
+Inside the library, function or program, describe HOW.
+
+
+
+
+
+The using directive
+
+For illustrative purposes, let's take a look at an example where a using statement causes a naming collision:
+
+
+#include <iostream>
+ 
+int cout() // declares our own "cout" function
+{
+    return 5;
+}
+ 
+int main()
+{
+    using namespace std; // makes std::cout accessible as "cout"
+    cout << "Hello, world!"; // uh oh!  Which cout do we want here?
+ 
+    return 0;
+}
+In the above example, the compiler is unable to determine whether we meant std::cout or the cout function we've defined.
+Although this example is trivial, if we had explicitly prefixed std::cout like this:
+
+
+    std::cout << "Hello, world!";
+or used a using declaration instead of a using directive:
+
+    using std::cout;
+    cout << "Hello, world!";
+then our program wouldn't have any issues in the first place.
+
+Many people avoid "using directives" altogether for this reason.
+Others find them acceptable so long as they are used only within individual functions (which limits the places where naming collisions can occur to just those functions).
+
+
+Rule: Avoid "using" statement outside of a function body.
+
+
+
+HEADER FILES
+
+Header file best practices
+
+Here are a few best practices for creating your own header files.
+
+Always include header guards.
+Do not define variables in header files unless they are constants. Header files should generally only be used for declarations.
+Do not define functions in header files.
+
+Each header file should have a specific job, and be as independent as possible.
+For example, you might put all your declarations related to functionality A in A.h and all your declarations related to functionality B in B.h.
+That way if you only care about A later, you can just include A.h and not get any of the stuff related to B.
+
+Give your header files the same name as the source files they’re associated with (e.g. grades.h goes with grades.cpp).
+Try to minimize the number of other header files you #include in your header files. Only #include what is necessary.
+Do not #include .cpp files.
+

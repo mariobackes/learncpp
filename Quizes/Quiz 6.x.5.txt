@@ -1,0 +1,12 @@
+a) off by one error. 'count <= 5' should be 'count < 5'
+
+b) const int* ptr means the pointer is pointing to a const int so the dereferenced value of the pointer can not be changed.
+
+c) Arrays decay to pointers when passed to a function, therefore the for-each loop can not know the length of the array and this will cause a compiler error.
+
+d) The array that is allocated in the function is returned as a pointer and therefore the length of the array is unknown to the caller. WRONG 
+	Correct answer:
+		temp is a fixed array, but length is not a compile time constant. Variable temp will also go out of scope at the end of the function, so the retun value will point to something invalid.
+			.....I was as wrong as it can get.......
+
+e) a pointer to int can not point to a double typed variable.

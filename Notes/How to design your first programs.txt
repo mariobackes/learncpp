@@ -1,0 +1,52 @@
+Design your program BEFORE you start coding!
+
+For examples or a more detailed help go to: http://www.learncpp.com/cpp-tutorial/1-10b-how-to-design-your-first-programs/
+
+Step 1: Define the problem
+
+Step 2: Define your tools, targets and backup plan
+
+	- Understand who your targets are and what they want.								| Most of the listed points will probably not impact me for now.
+	- Define the target architecture and OS, your program will run on.					| 
+	- Determine what set of tools you will be using										|
+	- Determine wheter you will write your program alone or as part of a team.			|
+	- Collecting requirements --- A documented list of what the program needs to do.	|
+	- Define testing, feedback and release strategy.									|
+	- Determine how you will back up your code.											|
+	
+Step 3: Break down hard problems down to easy problems.
+
+	Create a task hierarchy by breaking down complex tasks into easier ones.
+	The big complex task is the equivalent of the main() function the smaller sub-tasks are functions inside main.
+	The functions inside main should be easy, if not trivial, to implement. 
+	If they are not, divide these subtasks/functions into even smaller functions/subtasks.
+	
+Step 4: Figure out the sequence of events
+
+	Now your program has a structure, now you should determine how to link the tasks together.
+		This step is to determine the sequence of events.
+	
+Step 5: Figure out data inputs and outputs for each task
+
+	If you already have the input from a previous step, that input data will become the parameter.
+	If you are calculating output for use by some other function, that output will generally become the return value.
+	After doing this you should have prototypes for every function.
+	
+Step 6: Write the task details
+
+	Write the actual task implementation.
+	If you have broken the tasks downinto small enough pieces, each task should be simple now.
+	If not you should break up the task further.
+	
+Step 7: Connect the data inputs and outputs
+	
+
+Words of advice:
+	
+	Keep your progress simple to start - don't overwhelm yourself with too much you want to do or trying to do something out of your reach.
+	
+	Add features over time instead of trying to do everything at once.
+	
+	Focus on one area at a time. Don't work on multiple things simultaniously.
+	
+	Test each piece of code. Don't write everything in one go and then get overwhelmed by hundreds of errors and warnings.

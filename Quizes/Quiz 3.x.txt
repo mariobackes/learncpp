@@ -1,0 +1,32 @@
+http://www.learncpp.com/cpp-tutorial/3-x-comprehensive-quiz/
+
+1)
+	a) true
+	b) false
+	c) true
+	d) 4
+	
+2)
+	a) 1
+	b) 4
+	
+3)
+	a) 13
+	b) 46
+	
+4)
+	a) 0000 1111
+	b) 0011 0101
+	
+5) 
+	a) 	Because you should not change a variable while it is being just as a parameter for a function that is being called.
+		That is because depending on the computer architecture and the compiler the function parameters can be called in different orders. That can create unexpected results.
+		You should avoid "side affects" in function (calls) overall.
+		
+	b)	int x = 7 / -2;		// Answer might be variable depending on compiler? But afaik this should not be the error here.
+								Apparently it is because prior to c++ 11 it was undetermined whether the answer would be rounded up or down
+	c)	Because prior to c++ 11 it was dependand on the compiler, whether the answer of a modulo calculation is positive or negative
+	d)	Floating point variables have a very slim rounding error, when adding them together. In this case, for example, x will not be equal to 0.2.
+		An alternative would be to use a function like the approxEqualAbsRel(double, double, double, double) int the useful functions project in the learncpp solution.
+		
+	e) Don't you dare to divide by zero.

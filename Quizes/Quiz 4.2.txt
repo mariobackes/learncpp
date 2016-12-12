@@ -1,0 +1,3 @@
+A variables scope defines where in a file a variable can be accessed
+A variables duration defin ed when the variable is created and when it is destroyed
+A variables linkage define in which files the variable can be accessed

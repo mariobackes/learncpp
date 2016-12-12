@@ -1,0 +1,59 @@
+USING STATEMENT
+Rule: Avoid "using" statement outside of a function body.
+
+
+HEADER FILES
+Rule: use the non .h version of a library if it exists, and access the functionality through the std namespace. If the non .h version does not exist, or you are creating your own headers, use the .h version
+
+Rule: Each .cpp file should explicitly #include all of the header files it needs to compile.
+
+Rule: Use angled brackets to include header files that come with the compiler. Use double quotes to include any other header files.
+
+Rule: use const variables to provide a name and context for your magic numbers.
+
+
+
+
+
+Rule: When dealing with bit operators, use unsigned integers.
+
+Rule: Don’t use the “using” keyword in the global scope. This includes header files!
+
+Rule: Avoid const casts and reinterpret casts unless you have a very good reason to use them.
+
+Rule: Avoid C-style casts
+	C-Style casts:
+		int i1 = 10;
+		int i2 = 4;
+		
+		float f = (float)i1/i2;	// i1 is converted to a float wich will make the compiler convert the other number in the division to a float too.
+		or
+		float f = float(i1)/i2 // C++ allows this "function call like" type conversion cast
+		
+
+Best practice: Don’t assign specific values to your enumerators.
+Rule: Don’t assign the same value to two enumerators in the same enumeration unless there’s a very good reason.
+
+Rule: Favor type aliases over typedefs if your compiler is C++11 compatible. --- Because the syntax of typedefs gets ugly with more complex types.
+	Typedef: 		typedef double distance_t; --- defines distance_t as the type double.
+	Type alias: 	using distance_t = double; --- defines distance_t as an alias for double.
+	
+	
+	
+Rule: If defining variables used in a case statement, do so in a block inside the case (or before the switch if appropriate)
+
+
+
+Conclusion
+
+As you write your programs, consider how users will misuse your program, especially around text input. For each point of text input, consider:
+
+Could extraction fail?
+Could the user enter more input than expected?
+Could the user enter meaningless input?
+Could the user overflow an input?
+
+
+
+
+Rule: Compile often, and test any non-trivial functions when you write them

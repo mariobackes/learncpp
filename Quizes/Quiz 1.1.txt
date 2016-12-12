@@ -1,0 +1,11 @@
+learncpp 1.1
+
+Quiz
+
+1) An expression is a mathematical action that is performed an expression is a finished "sentence" that tells the compiler what to do.
+
+2) A function is a set of instructions that the program will follow. A library is a set of functions or statements that can be included in your program.
+
+3) The semicolon ";".
+
+4) An error that occurs if you e.g. forget a semicolon. The error occurs if you don't follow the rules of the C++ language.

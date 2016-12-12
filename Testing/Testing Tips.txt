@@ -1,0 +1,83 @@
+http://www.learncpp.com/cpp-tutorial/5-11-introduction-to-testing-your-code/
+
+
+Testing tip #1: Write your program in small, well defined units (functions), and compile often along the way
+
+Consider an auto manufacturer that is building a custom concept car. Which of the following do you think they do?
+a) Build (or buy) and test each car component individually before installing it. 
+Once the component has been proven to work, integrate it into the car and retest it to make sure the integration worked. 
+At the end, test the whole car, as a final validation that everything seems good.
+b) Build a car out of all of the components all in one go, then test the whole thing for the first time right at the end.
+
+It probably seems obvious that option a) is a better choice. And yet, many new programmers write code like option b)!
+
+In case b), if any of the car parts were to not work as expected, the mechanic would have to diagnose the entire car to determine what was wrong 
+the issue could be anywhere. A symptom might have many causes 
+for example, is the car not starting due to a faulty spark plug, battery, fuel pump, or something else? 
+This leads to lots of wasted time trying to identify exactly where the problems are, and what to do about them. 
+And if a problem is found, the consequences can be disastrous -- a change in one area might cause “ripple effects” (changes) in other places. 
+For example, a fuel pump that is too small might lead to an engine redesign, which leads to a redesign of the car frame. 
+In the worst case, you might end up redesigning a huge part of the car, just to accommodate what was initially a small issue!
+
+In case a), the company tests as they go. If any component is bad right out of the box, they’ll know immediately and can fix/replace it. 
+Nothing is integrated into the car until it’s proven working. 
+By the time they get around to having the whole car assembled, they should have reasonable confidence that the car will work -- after all, all the parts have been tested. 
+It’s still possible that something happened while connecting all the parts, but that’s a lot less fewer things to have to worry about and potentially debug.
+
+The above analogy holds true for programs as well, though for some reason, new programmers often don’t realize it. 
+You’re much better off writing small functions, and then compiling and testing them immediately. 
+That way, if you make a mistake, you’ll know it has to be in the small amount of code that you changed since the last time you compiled/tested. 
+That means many less places to look, and far less time spent debugging.
+
+Rule: Compile often, and test any non-trivial functions when you write them
+
+
+
+
+
+Testing tip #2: Aim for 100% statement coverage
+
+The term code coverage is used to describe how much of the source code of a program is executed while testing. 
+There are many different metrics used for code coverage, but there are few worth talking about in this informal context.
+
+Statement coverage refers to the percentage of statements in your code that have been exercised by your testing routines.
+
+
+
+
+Testing tip 3: Aim for 100% branch coverage
+
+Branch coverage refers to the percentage of branches that have been executed, with the affirmative case and negative case counting separately. 
+An if statement has two branches -- a true case, and false case (even if there is no corresponding statement to execute). A switch can have many branches.
+
+
+
+
+
+Testing tip #4: Aim for 100% loop coverage
+
+Loop coverage (informally called “the 0, 1, 2 test”) says that if you have a loop in your code, you should ensure it works properly when it iterates 0 times, 1 time, and 2 times.
+If it works correctly for the 2 iteration case, it should work correctly for all iterations greater than 2. 
+These three tests therefore cover all possibilities (since a loop can’t execute a negative number of times).
+
+
+
+
+Testing tip #5: Ensure you’re testing different categories of input
+
+When writing functions that accept parameters, or when accepting user input, consider what happens with different categories of input. 
+In this context, we’re using the term “category” to mean a set of inputs that have similar characteristics.
+
+For example, if I wrote a function to produce the square root of an integer, what values would it make sense to test it with? 
+You’d probably start with some normal value, like 4. But it would also be a good idea to test with 0, and a negative number.
+
+Here are some basic guidelines for category testing:
+
+For integers, make sure you’ve considered how your function handles negative values, zero, and positive values. 
+For user input, you should also check for overflow if that’s relevant.
+
+For floating point numbers, make sure you’ve considered how your function handles values that have precision issues (values that are slightly larger or smaller than expected). 
+Good test values are 0.1 and -0.1 (to test numbers that are slightly larger than expected) and 0.6 and -0.6 (to test numbers that are slightly smaller than expected).
+
+For strings, make sure you’ve considered how your function handles an empty string (just a null terminator), normal valid strings, strings that have whitespace, and strings that are all whitespace. 
+If your function takes a pointer to a char array, don’t forget to test nullptr as well (don’t worry if this doesn’t make sense, we haven’t covered it yet).

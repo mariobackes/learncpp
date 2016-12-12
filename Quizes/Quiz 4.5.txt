@@ -1,0 +1,7 @@
+3)
+	a) true
+	b) true - Enumerators not assigned a value will have the value of the previous enumerator +1. If there is no prev enum the value will be 0. 
+	c) false
+	d) true
+	e) true 
+	f) true (but not recommended - should be used with a good reason only)

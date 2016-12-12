@@ -1,0 +1,16 @@
+a)
+	The function returns a reference to an element that will be destroyed after the function terminates.
+	
+b)
+	This recursive function has no termination condition and therefore will run endlessly.
+	
+c)
+	These overloaded functions differ only by return type. That is not allowed in C++.
+	
+d)
+	The declaration of an array of that size will cause the stack to overflow and therefore crash the program.
+	A ood alternative wuld be to allocate the array dynamically.
+	
+e)
+	argv[1] is a c-style string and this program tries to evaluate it as an integer. This will not work.
+	Also argv[1] may not exist.

@@ -1,0 +1,16 @@
+Q 1:
+	Symbolic constants are better, because the programmer can set the scope of these constants. Literal constants (#define LITERAL_CONSTANT 34000) always have a global scope.
+	Also debugging is a lot easier, because the debugger shows you the values of variables/symbolic constants but not the values of lieteral constants.
+	
+Q 2:
+	a) int8_t ageOfUser - Because an age is an integer and has a range of less than 255 and 127. That is why it does not mattrer if the int would be signed or unsigned.
+	b) bool colorOn - because it can have only two states
+	c) const double pi - double because pi should be as precise as possible and const because pi will not change
+	d) unsigned int16_t pagesInTextbook - unsigned because a book can not have a negative amout of pages and 16 bit because an eight bit integer could not hold a value above 255 (if unsigned) and lots of books have more pages than 255
+	e) float stockPrice - double would be a waste of memory, because float can hold up to 7 decimal places precisely and only 2 places after the comma are needed
+	f) int32_t blinksSinceBirth - We don't need decimals. A 16 bit int would overflow.
+	g) char
+	h) int16_t - We don not need decimals here. A 8 bit int would overflow. A 32 bit int would be a waste of memory.
+	
+Q 3:
+	a)
