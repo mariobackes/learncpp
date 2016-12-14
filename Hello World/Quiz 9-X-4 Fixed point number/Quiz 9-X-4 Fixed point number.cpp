@@ -1,6 +1,8 @@
 // Quiz 9-X-4 Fixed point number.cpp : Defines the entry point for the console application.
 //
 
+// This Project is not working. 
+
 #include "stdafx.h"
 
 class FixedPoint2
