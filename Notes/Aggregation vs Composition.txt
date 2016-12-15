@@ -1,0 +1,36 @@
+Aggregation
+
+To quality as an aggregation, a whole object and its parts must have the following relationship:
+
+The part (member) is part of the object (class)
+The part (member) can belong to more than one object (class) at a time
+The part (member) does not have its existence managed by the object (class)
+The part (member) does not know about the existence of the object (class)
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+Composition
+
+To qualify as a composition, an object and a part must have the following relationship:
+
+The part (member) is part of the object (class)
+The part (member) can only belong to one object (class) at a time
+The part (member) has its existence managed by the object (class)
+The part (member) does not know about the existence of the object (class)
+
+
+
+Variants on the composition theme
+
+Although most compositions directly create their parts when the composition is created and directly destroy their parts when the composition is destroyed, there are some variations of composition that bend these rules a bit.
+
+For example:
+
+A composition may defer creation of some parts until they are needed. For example, a string class may not create a dynamic array of characters until the user assigns the string some data to hold.
+A composition may opt to use a part that has been given to it as input rather than create the part itself.
+A composition may delegate destruction of its parts to some other object (e.g. to a garbage collection routine).
+The key point here is that the composition should manage its parts without the user of the composition needing to manage anything.
