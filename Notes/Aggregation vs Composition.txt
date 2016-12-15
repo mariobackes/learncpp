@@ -1,3 +1,8 @@
+##################
+### In theory: ###
+##################
+
+
 Aggregation
 
 To quality as an aggregation, a whole object and its parts must have the following relationship:
@@ -34,3 +39,24 @@ A composition may defer creation of some parts until they are needed. For exampl
 A composition may opt to use a part that has been given to it as input rather than create the part itself.
 A composition may delegate destruction of its parts to some other object (e.g. to a garbage collection routine).
 The key point here is that the composition should manage its parts without the user of the composition needing to manage anything.
+
+
+
+###############
+### In Code ###
+###############
+
+
+Aggregations:
+
+Typically use pointer or reference members that point to or reference objects that lives outside the scope of the aggregate class
+Not responsible for creating/destroying parts
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Compositions:
+
+Typically use normal member variables
+Can use pointer values if the composition class automatically handles allocation/deallocation
+Responsible for creation/destruction of parts
