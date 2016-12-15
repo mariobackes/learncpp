@@ -25,16 +25,9 @@ public:
     std::cout << "Default constructor" << std::endl;
   }
 
-  // Destructor
-  ~IntArray()
-  {
-    std::cout << "address to delete:" << m_array <<std::endl;
-    delete[] m_array;
-  }
-
   // Copy constructor 
   IntArray(const IntArray& ary)
-    : m_array (new int[m_arraySize])
+    : m_array(new int[m_arraySize])
     , m_arraySize(ary.m_arraySize)
   {
     std::cout << "Copy constructor" << std::endl;
@@ -42,6 +35,13 @@ public:
     {
       m_array[i] = ary.m_array[i];
     }
+  }
+
+  // Destructor
+  ~IntArray()
+  {
+    std::cout << "address to delete:" << m_array <<std::endl;
+    delete[] m_array;
   }
 
   IntArray& operator= (const IntArray& ary)
@@ -73,10 +73,11 @@ public:
     return out;
   }
 
-
   int& operator[](const int index)
   {
+    // Use assert only to debug
     assert(index < m_arraySize);
+    // std::cout << "Assert skipped" << std::endl;
     return m_array[index];
   }
 
@@ -99,19 +100,19 @@ IntArray fillArray()
   a[2] = 2;
   a[3] = 3;
   a[4] = 6;
-
+ 
   return a;
 }
 
 int main()
 {
   IntArray a = fillArray();
-  std::cout << a << '\n';
+  std::cout << a << std::endl;
 
   IntArray b(2);
   a = a;
   b = a;
-
+  
   std::cout << b << '\n';
 
   return 0;
