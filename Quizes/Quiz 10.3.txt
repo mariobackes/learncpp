@@ -1,0 +1,30 @@
+Quiz time
+
+1) Would you be more likely to implement the following as a composition or an aggregation?
+1a) A ball that has a color
+1b) A employer containing multiple employees
+1c) The departments in a university
+1d) Your age
+1e) A bag of marbles
+
+
+
+a)  If you want to store color as a string, then I would implement it as a composition.
+	However, if the color should be able to store e.g the RGB values of a color then I would make it an aggregation,
+		because a color object should be able to exist independantly of the Ball object.
+		
+b)  As an aggregation.
+
+c) As a composition.
+
+d) ?????? as an int.
+
+e) As aggregation, the marbles should be able to have properties.
+
+Correct answers:
+
+1a) Composition: Color is an intrinsic property of a ball.
+1b) Aggregation: An employer doesn’t start with any employees and hopefully doesn’t destroy all its employees when it goes bankrupt.
+1c) Composition: Departments can’t exist in absence of a university.
+1d) Composition: Your age is an intrinsic property of you.
+1e) Aggregation: The bag and the marbles inside have independent existences.
