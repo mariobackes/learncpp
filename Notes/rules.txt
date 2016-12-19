@@ -54,6 +54,7 @@ Could the user enter meaningless input?
 Could the user overflow an input?
 
 
-
-
 Rule: Compile often, and test any non-trivial functions when you write them
+
+
+Rule: Use public inheritance unless you have a specific reason to do otherwise.
