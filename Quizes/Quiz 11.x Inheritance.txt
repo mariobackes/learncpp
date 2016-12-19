@@ -1,0 +1,103 @@
+Quiz Time
+
+1) For each of the following programs, determine what they output, or if they would not compile, indicate why. This exercise is meant to be done by inspection, so do not compile these (otherwise the answers are trivial).
+
+1a)
+
+My answer: The output would be:
+
+Base()
+Derived()
+~Derived()
+~Base()
+
+Solution: 
+
+Construction happens in order from most-Parent to most-Child. Destruction happens in the opposite order.
+Base()
+Derived()
+~Derived()
+~Base()
+
+
+1b)
+
+My answer:
+
+Base()
+Derived()
+Base()
+~Base()
+~Derived()
+~Base()
+
+Solution:
+
+First we construct d, which prints:
+Base()
+Derived()
+Then we construct b, which prints:
+
+Base()
+Then we destruct b, which prints:
+
+~Base()
+Then we destruct d, which prints:
+
+~Derived()
+~Base()
+
+
+1c)
+
+My answer:
+
+Base()
+Derived()
+Derived: 5
+~Derived()
+~Base()
+
+Solution: 
+
+Doesn't compile, Derived::print() can't access private member m_x
+
+1d)
+
+My answer:
+
+Base()
+Derived()
+Derived: 5
+~Derived()
+~Base()
+
+Solution:
+
+Base()
+Derived()
+Derived: 5
+~Derived()
+~Base()
+
+1e)
+
+My answer:
+
+Base()
+Derived()
+D2()
+Base: 5
+~D2()
+~Derived()
+~Base()
+
+Solution:
+
+Base()
+Derived()
+D2()
+Derived: 5
+~D2()
+~Derived()
+~Base()
