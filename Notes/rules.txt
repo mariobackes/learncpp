@@ -58,3 +58,6 @@ Rule: Compile often, and test any non-trivial functions when you write them
 
 
 Rule: Use public inheritance unless you have a specific reason to do otherwise.
+
+
+Rule: Avoid multiple inheritance unless alternatives lead to more complexity.
