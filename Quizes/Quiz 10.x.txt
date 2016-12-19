@@ -1,0 +1,50 @@
+Quiz time
+
+This chapter is pretty straightforward and a little more abstract than the previous ones, so this quiz will be short and to the point.
+
+1) What type of relationship (composition, aggregation, association, or dependency) do the following describe?
+
+1a) An Animal class that contains an animal type (enum) and name (string).
+
+My answer: Composition, the existence of all members is managed by the class.
+
+Correct answer: Composition -- The animal type and name don’t have a use outside of the Animal.
+
+
+
+1b) A text editor class with a save() function that takes a File object. The save() function writes the contents of the editor to disk.
+
+Ay answer: This is an association, the objects are otherwise unrelated and can exist without each other.
+
+Correct answer: Dependency -- The text editor class is using the File object for the task of saving to disk.
+
+
+
+1c) An Adventurer class that can carry various kinds of Items, such as swords, wands, potions, or spellbooks. These Items can be dropped and picked up by other Adventurers.
+
+Ay answer: Aggregation, assuming all of these are classes itself this is an aggrergation, the items can exist without the adventurer class, the adventurer class just owns them.
+
+Correct answer: Aggregation -- When the Items are associated with the Adventurer, the Adventurer has-them. A sword being used by an adventurer can’t be used by anybody else at that time. But the Adventurer doesn’t manage the items existences.
+
+
+
+1d) A Programmer uses a Computer to watch cat videos on the internet.
+ 
+Ay answer: This is a association, because it is a "uses-a" relationship.
+
+Correct answer: Association -- The programmer and Computer are otherwise unrelated, except when the Programmer is using the Computer to watch kittens ride around on top of Roombas.
+
+
+
+1e) A Computer class that contains a CPU class. The CPU can be removed from the Computer and tested on its own.
+
+Ay answer: Aggregation
+
+Correct answer: Aggregation -- The computer has a CPU, but does not manage its existence.
+
+
+2) Select one: If you can design a class using (composition, aggregation, association, or dependency), then you should.
+
+Ay answer: Make it a composition.
+
+Correct answer: composition
