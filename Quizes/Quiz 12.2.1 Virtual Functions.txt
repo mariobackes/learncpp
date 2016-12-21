@@ -1,0 +1,39 @@
+http://www.learncpp.com/cpp-tutorial/122-virtual-functions/
+
+Quiz time
+
+1) What do the following programs print? This exercise is meant to be done by inspection, not by compiling the examples with your compiler.
+
+1a)
+	My answer: B.
+	
+	Solution: B. rBase is an A reference pointing to a C object. Normally rBase.getName() would call A::getName(),
+	but A::getName() is virtual so it instead calls the most derived matching function between A and C. That is B::getName(), which prints B.
+	
+1b)
+	My answer: C.
+	
+1c)
+	My answer: A.
+	
+	Solution: A. Since A is not virtual, when rBase.getName() is called, A::getName() is called.
+	
+1d)
+	My answer: B.	// Wrong
+	
+	Solution: C. Even though B and C aren’t marked as virtual functions, A::getName() is virtual and B::getName() and C::getName() are overrides.
+	Therefore, B::getName() and C::getName() are considered implicitly virtual.
+	
+1e)
+	My answer: A.
+	
+	Solution: A. This one is a little trickier. rBase is an A pointer to a C object, so rBase->getName() would normally call A::getName(). 
+	But A::getName() is virtual, so it calls the most derived version of the function between A and C. And that is A::getName(). 
+	Because B::getName() and c::getName() are not const, they are not considered overrides! Consequently, this program prints A.
+	
+1f)
+	My answer: A.
+	
+	Solution: A. Another tricky one. When we create a C object, the A part is constructed first. 
+	When the A constructor is called to do this, it calls virtual function getName(). 
+	Because the B and C parts of the class aren’t set up yet, this resolves to A::getName().
