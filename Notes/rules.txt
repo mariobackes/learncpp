@@ -61,3 +61,6 @@ Rule: Use public inheritance unless you have a specific reason to do otherwise.
 
 
 Rule: Avoid multiple inheritance unless alternatives lead to more complexity.
+
+
+Rule: Never call virtual functions from constructors or destructors
