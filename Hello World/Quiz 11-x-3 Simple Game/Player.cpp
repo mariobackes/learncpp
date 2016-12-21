@@ -3,6 +3,7 @@
 
 Player::Player(std::string name)
   : Creature(name, '@', 10, 1, 0)
+  , m_level{ 1 }
 {
 
 }

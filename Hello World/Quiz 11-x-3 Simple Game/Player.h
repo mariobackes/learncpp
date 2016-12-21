@@ -5,7 +5,7 @@ protected:
   int m_level;
 
 public:
-  Player(std::string name);
+  Player(std::string name = "DefaultName");
 
   // Increments m_level and m_dpa
   void levelUp();
