@@ -1,0 +1,38 @@
+Quiz time
+
+1) Each of the following programs has some kind of defect. Inspect each program (visually, not by compiling) and determine what is wrong with the program. The output of each program is supposed to be “Derived”
+
+1a)
+	My answer: This program prints "Base"
+	
+	Solution: Base::getName() wasn’t made virtual, so b.getName() doesn’t resolve to Derived::getName()
+	
+1b)
+	My answer: This program still prints base, because the virtual functions in the base and in the derived class mitchmatch constness.
+	
+	Solution: Base::getName() is non-const and Derived::getName() is const, so Derived::getName() is not considered an override.
+	
+1c)
+	My answer: In the assignment statemnt object 'd' was sliced and just the base part of the object was copied/assigned, therefore the program should print 'base'.
+	
+	Solution: d was assigned to b by value, causing d to get sliced.
+	
+1d)
+	My answer: This should work fine and print 'Derived'.	// Did not see the final keyword.... FeelsBadMan
+	
+	Solution: Base was declared as final, so Derived can’t be derived from it. This will cause a compile error.
+	
+1e)
+	My answer: The derived version of getName() is assigned to zero, is this function still an override then?
+
+	Solution: Derived::getName() is an abstract function (with a body) and therefore can’t be instantiated.
+	
+1f) 
+	My answer: 	A new Derived object is dynamically allocated and *d is pointing to this object.
+				Then Base* b is assigned the address of the *d pointer. So they now both point to a Derived object (as expected).
+				Then we get the situation that a base* pointer is pointing to a derived object and then is called a function upon.
+				This will resolve as expected, because getName() is virtual ( even though the getName() function in the derived class could need an override specifier);)
+				So in conclusion: This program should work as expected and print 'Derived'
+				
+	Solution: This program actually produces the right output, but has a different issue. We’re deleting b, which is a Base pointer, but we never added a virtual destructor to the Base class. 
+			  Consequently, the program only deletes the Base portion of the Derived object, and the Derived portion is left as leaked memory.
