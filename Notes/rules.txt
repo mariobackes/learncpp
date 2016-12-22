@@ -67,3 +67,6 @@ Rule: Never call virtual functions from constructors or destructors
 
 
 Rule: Apply the override specifier to every intended override function you write.
+
+
+Rule: Always ensure your dynamic casts actually succeeded by checking for a null pointer result.
