@@ -1,0 +1,9 @@
+Downcasting vs virtual functions
+
+There are some developers who believe dynamic_cast is evil and indicative of a bad class design. Instead, these programmers say you should use virtual functions.
+
+In general, using a virtual function should be preferred over downcasting. However, there are times when downcasting is the better choice:
+
+When you can not modify the base class to add a virtual function
+When you need access to something that is derived-class specific
+When adding a virtual function to your base class doesn’t make sense (e.g. there is no appropriate value for the base class to return)
