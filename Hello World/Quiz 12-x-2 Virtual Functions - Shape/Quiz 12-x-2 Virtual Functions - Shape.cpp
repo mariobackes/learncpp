@@ -34,5 +34,9 @@ int main()
   std::cout << "The largest radius is: " << getLargestRadius(v) << '\n'; // write this function
 
                                                                          // delete each element in the vector here
+  for (int i = 0; i < v.size(); ++i)
+  {
+    delete[] v[i];
+  }
 }
 
