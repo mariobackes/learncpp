@@ -1,0 +1,14 @@
+Quote from: http://www.learncpp.com/cpp-tutorial/142-basic-exception-handling/
+
+
+
+
+Recapping exception handling
+
+Exception handling is actually quite simple, and the following two paragraphs cover most of what you need to remember about it:
+
+When an exception is raised (using throw), execution of the program immediately jumps to the nearest enclosing try block (propagating up the stack if necessary to find an enclosing try block -- we’ll discuss this in more detail next lesson). If any of the catch handlers attached to the try block handle that type of exception, that handler is executed and the exception is considered handled.
+
+If no appropriate catch handlers exist, execution of the program propagates to the next enclosing try block. If no appropriate catch handlers can be found before the end of the program, the program will fail with an exception error.
+
+That’s really all there is to it. The rest of this chapter will be dedicated to showing examples of these principles at work.
