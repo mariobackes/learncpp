@@ -12,9 +12,57 @@
 #include <iomanip>
 #include <conio.h>
 #include <Windows.h>
+#include <DeviceStackClient\KeepAliveSettings.h>
+#include <DeviceStackClient\devicestackclient.h>
 #undef max
 
+
+
 const int g_maxPinEntryTries = 5;
+
+void SetConfiguration()
+{
+  return;
+}
+
+int Choice(std::vector<char> choices)
+{
+  char input;
+  std::cin >> input;
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  if (std::cin.fail())
+  {
+    std::cin.clear();
+  }
+  input = tolower(input);
+  int i = 0;
+  for (const auto& character : choices)
+  {
+    ++i;
+    if (character == input)
+    {
+      return i;
+    }
+  }
+  return 0; // If no match is found
+}
+
+// String Case Insensitive Compare
+bool SciCompare(const std::string& lhs, const std::string& rhs)
+{
+  if (lhs.size() != rhs.size())
+  {
+    return false;
+  }
+  for (unsigned int i = 0; i < lhs.size(); ++i)
+  {
+    if (tolower(lhs[i]) != tolower(rhs[i]))
+    {
+      return false;
+    }
+  }
+  return true;
+}
 
 unsigned int EnterPin()
 {
@@ -61,45 +109,6 @@ unsigned int EnterPin()
       return std::stoi(sPin);
     }
   }
-}
-
-int Choice(std::vector<char> choices)
-{
-  char input;
-  std::cin >> input;
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  if (std::cin.fail())
-  {
-    std::cin.clear();
-  }
-  input = tolower(input);
-  int i = 0;
-  for (const auto& character : choices)
-  {
-    ++i;
-    if (character == input)
-    {
-      return i;
-    }
-  }
-  return 0; // If no match is found
-}
-
-// String Case Insensitive Compare
-bool SciCompare(const std::string& lhs, const std::string& rhs)
-{
-  if (lhs.size() != rhs.size())
-  {
-    return false;
-  }
-  for (unsigned int i = 0; i < lhs.size(); ++i)
-  {
-    if (tolower(lhs[i]) != tolower(rhs[i]))
-    {
-      return false;
-    }
-  }
-  return true;
 }
 
 inline bool PinIsValid(unsigned int pin)
@@ -339,12 +348,81 @@ void loggedIn(Konto& konto)
   }
 }
 
+void printError(const Gira::IDeviceStackClient::ErrorCode errCode)
+{
+  switch (errCode)
+  {
+  case 0:
+  std::cout << "No error" << std::endl;
+  break;
+  case 1:
+  std::cout << "General error" << std::endl;
+  break;
+  case 2:
+  std::cout << "Internal device stack error" << std::endl;
+  break;
+  case 3:
+  std::cout << "Invalid device manager state" << std::endl;
+  break;
+  case 100:
+  std::cout << "Application not registered" << std::endl;
+  break;
+  case 101:
+  std::cout << "Invalid registration request" << std::endl;
+  break;
+  case 102:
+  std::cout << "Unknown Command" << std::endl;
+  break;
+  case 103:
+  std::cout << "Invalid command parameter" << std::endl;
+  break;
+  case 110:
+  std::cout << "Invalid Object ID" << std::endl;
+  break;
+  case 111:
+  std::cout << "Unknown Object ID" << std::endl;
+  break;
+  case 112:
+  std::cout << "Unknown Object Name" << std::endl;
+  break;
+  case 1001:
+  std::cout << "General Client side Error" << std::endl;
+  break;
+  case 1002:
+  std::cout << "Internal Client side Error" << std::endl;
+  break;
+  }
+}
+
 int main()
 {
   srand(time(0));
   rand(); // Discarding once because of a visual studio (bug?)
+  bool deviceConnceted = true;
 
+  std::string uri = "wss://192.168.137.30:4432/gds/api";
+
+  std::unique_ptr<Gira::IDeviceStackClient> client = Gira::CreateDeviceStackClient(uri, "device", "device");
+  if (!client)
+  {
+    std::cout << "Could not connect to device." << std::endl;
+    deviceConnceted = false;
+  }
+  if (!client->RegisterApplication("MBA"))
+  {
+    deviceConnceted = false;
+    std::cout << "Registration on device failed." << std::endl;
+    printError(client->GetLastError().Code());
+    return 2;
+  }
+  else
+  {
+    std::cout << "Registration on device successfull" << std::endl;
+  }
   // TODO: connect and register on/to adevice
+
+  SetConfiguration();
+
 
   std::vector<Konto> konten;
   LoadData(konten);
@@ -406,8 +484,12 @@ int main()
 
     case 'C':
     case 'c':
-    konten.push_back(CreateAccount(konten));
-    break;
+    {
+      Konto newKonto = CreateAccount(konten);
+      konten.push_back(newKonto);
+      break;
+    }
+
 
     case 'E':
     case 'e':
@@ -421,6 +503,7 @@ int main()
     {
       std::cout << "Username: " << konto.GetUsername() << " Pin: " << konto.GetPin() << " Balance: " << konto.GetBalance() << std::endl;
     }
+    break;
 #endif // _DEBUG
 
     default:
