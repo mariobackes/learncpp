@@ -307,3 +307,5 @@ __pycache__/
 *.out
 *.app
 /Hello World/learncpp.VC.db
+
+PracticeProjects/Bankautomat/savedata\.txt

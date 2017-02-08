@@ -12,13 +12,16 @@ public:
   Konto(const std::string username, unsigned int pin, double balance = 0);
   ~Konto();
 
-  double getBalance() const;
+  unsigned int GetPin() const;
 
-  std::string getUsername() const;
+  double GetBalance() const;
 
-  bool checkPin(unsigned int pin) const;
+  std::string GetUsername() const;
 
-  // TODO
-  // add getter and setter function for balance
+  bool CheckPin(unsigned int pin) const;
+
+  Konto& operator+=(double rhs);
+
+  Konto& operator-=(double rhs);
 };
 

@@ -14,17 +14,34 @@ Konto::~Konto()
 {
 }
 
-double Konto::getBalance() const
+double Konto::GetBalance() const
 {
   return m_balance;
 }
 
-std::string Konto::getUsername() const
+std::string Konto::GetUsername() const
 {
   return m_username;
 }
 
-bool Konto::checkPin(unsigned int pin) const
+bool Konto::CheckPin(unsigned int pin) const
 {
   return (pin == m_pin);
+}
+
+Konto& Konto::operator+=(double rhs)
+{
+  this->m_balance += rhs;
+  return *this;
+}
+
+Konto& Konto::operator-=(double rhs)
+{
+  this->m_balance -= rhs;
+  return *this;
+}
+
+unsigned int Konto::GetPin() const
+{
+  return m_pin;
 }

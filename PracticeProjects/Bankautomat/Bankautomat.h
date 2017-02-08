@@ -2,12 +2,14 @@
 #include "Konto.h"
 #include <vector>
 
-int choice(std::vector<char> choices);
+int Choice(std::vector<char> choices);
 
-bool pinIsValid(unsigned int pin);
+bool PinIsValid(unsigned int pin);
 
-void printPin(unsigned int pin);
+void PrintPin(unsigned int pin);
 
-int generatePin();
+int GeneratePin();
 
-Konto createAccount();
+bool VerifyUsername(const std::string & uName);
+
+Konto CreateAccount(std::vector<Konto>& konto);
