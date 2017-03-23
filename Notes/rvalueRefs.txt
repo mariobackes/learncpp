@@ -1,0 +1,10 @@
+In a nuthsell there are three things to remember: 
+
+3. By overloading a function like this:
+	void foo(X& x); // lvalue reference overload
+	void foo(X&& x); // rvalue reference overload
+	you can branch at compile time on the condition "is foo being called on an lvalue or an rvalue?" The primary (and for all practical purposes, the only) application of that is to overload the copy constructor and copy assignment operator of a class for the sake of implementing move semantics. If and when you do that, make sure to pay attention to exception handling, and use the new noexcept keyword as much as you can. 
+ 
+2. std::move turns its argument into an rvalue.
+ 
+3. std::forward allows you to achieve perfect forwarding if you use it exactly as shown in the factory function example in Section 8. Setion 8: http://thbecker.net/articles/rvalue_references/section_08.html
